@@ -1,0 +1,23 @@
+/* src/index.css - CÓDIGO COMPLETO E CORRIGIDO */
+
+/* 1. Importação das Fontes Premium: Inter (corpo) e Playfair Display (títulos) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+/* 2. Configuração Base do Tailwind (permanece igual) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. A CORREÇÃO DEFINITIVA: Estabilizando a Fundação (mantida) */
+@layer base {
+  html,
+  body,
+  #root {
+    @apply w-full h-full min-h-screen;
+  }
+
+  body {
+    @apply bg-cover bg-fixed bg-center;
+    background-image: url("/Template Verde espelhado Listas brancas verticais 300 DPI.png");
+  }
+}

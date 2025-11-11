@@ -1,0 +1,848 @@
+{
+  "project_name": "Penso Logo Creio - Site Oficial Homepage",
+  "project_path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished",
+  "git_status": {
+    "current_branch": "main",
+    "modifications": [
+      "M package-lock.json",
+      "M package.json",
+      "M src/App.jsx",
+      "M src/components/ArticleCard.jsx",
+      "M src/components/NavBar.css",
+      "M src/components/NavBar.jsx",
+      "M src/main.jsx"
+    ],
+    "untracked_files": [
+      "CONFIG_GIT_SSH.txt",
+      "src/components/ArvoreDePostagens.jsx",
+      "src/components/NavBar.jsx.bak",
+      "src/components/PageTransition.jsx",
+      "src/content/devocional/",
+      "src/content/estudos/",
+      "src/content/teologia/",
+      "src/hooks/",
+      "src/pages/",
+      "src/templates/",
+      "src/utils/"
+    ]
+  },
+  "structure": {
+    "directories": {
+      "src": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src",
+        "size": "aproximadamente 204K",
+        "subdirectories": [
+          "assets (4K)",
+          "components (52K)",
+          "content (44K)",
+          "hooks (8K)",
+          "pages (32K)",
+          "styles (16K)",
+          "templates (16K)",
+          "utils (8K)"
+        ],
+        "root_files": [
+          "App.jsx (11K)",
+          "App.css (4K)",
+          "main.jsx (383 bytes)",
+          "index.css (683 bytes)"
+        ]
+      },
+      "src/assets": {
+        "files": [
+          {
+            "name": "react.svg",
+            "size": "4.1K",
+            "type": "image/svg+xml"
+          }
+        ]
+      },
+      "src/components": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/components",
+        "size": "52K",
+        "files": [
+          {
+            "name": "ArticleCard.jsx",
+            "size": "7.9K",
+            "lines": 269,
+            "type": "component",
+            "status": "USADO",
+            "imports": "import { ArticleCard } from \"./components/ArticleCard.jsx\"; (App.jsx)",
+            "complexity": "COMPLEXO - Card com efeitos hover, spotlight, animações, suporta posts main e secondary"
+          },
+          {
+            "name": "ArvoreDePostagens.jsx",
+            "size": "5.6K",
+            "lines": 179,
+            "type": "component",
+            "status": "USADO",
+            "imports": "import ArvoreDePostagens from \"./components/ArvoreDePostagens.jsx\"; (App.jsx)",
+            "complexity": "COMPLEXO - Árvore expansível com categorias de posts, estados, efeitos CSS"
+          },
+          {
+            "name": "Footer.jsx",
+            "size": "2.8K",
+            "lines": 68,
+            "type": "component",
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada",
+            "complexity": "MÉDIO - Footer com grid 3 colunas, brasão, links rápidos"
+          },
+          {
+            "name": "NavBar.jsx",
+            "size": "4.0K",
+            "lines": 129,
+            "type": "component",
+            "status": "USADO",
+            "imports": "import NavBar from \"./components/NavBar.jsx\"; (App.jsx)",
+            "complexity": "MÉDIO - Navbar com links customizados, efeitos dourados, responsiva"
+          },
+          {
+            "name": "NavBar.jsx.bak",
+            "size": "1.0K",
+            "lines": 36,
+            "type": "backup",
+            "status": "ARQUIVO .BAK - PODE SER REMOVIDO",
+            "imports": "N/A",
+            "complexity": "N/A"
+          },
+          {
+            "name": "PageTransition.jsx",
+            "size": "620 bytes",
+            "lines": 23,
+            "type": "component",
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada",
+            "complexity": "SIMPLES - Wrapper com transições CSS básicas"
+          },
+          {
+            "name": "ReflexaoDiaria.jsx",
+            "size": "7.1K",
+            "lines": 224,
+            "type": "component",
+            "status": "USADO",
+            "imports": "import ReflexaoDiaria from \"./components/ReflexaoDiaria.jsx\"; (App.jsx)",
+            "complexity": "COMPLEXO - Seção com 2 cards (versículo e pensamento), spotlight, animações"
+          },
+          {
+            "name": "VersiculoDestaque.jsx",
+            "size": "618 bytes",
+            "lines": 13,
+            "type": "component",
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada",
+            "complexity": "SIMPLES - Card estático com versículo e citação"
+          },
+          {
+            "name": "NavBar.css",
+            "size": "1.7K",
+            "type": "stylesheet"
+          }
+        ]
+      },
+      "src/pages": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/pages",
+        "size": "32K",
+        "files": [
+          {
+            "name": "Home.jsx",
+            "size": "551 bytes",
+            "lines": 15,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page simples com título 'Início' e descrição"
+          },
+          {
+            "name": "CaminhoDasEscrituras.jsx",
+            "size": "563 bytes",
+            "lines": 15,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page com título e descrição da seção"
+          },
+          {
+            "name": "EscadariaDoConhecimento.jsx",
+            "size": "569 bytes",
+            "lines": 15,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page com título e descrição da seção"
+          },
+          {
+            "name": "DevocionalDiaria.jsx",
+            "size": "535 bytes",
+            "lines": 15,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page com título e descrição da seção"
+          },
+          {
+            "name": "TemasDaVida.jsx",
+            "size": "535 bytes",
+            "lines": 15,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page com título e descrição da seção"
+          },
+          {
+            "name": "Post.jsx",
+            "size": "540 bytes",
+            "lines": 15,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page para exibir postagem individual"
+          },
+          {
+            "name": "Contato.jsx",
+            "size": "798 bytes",
+            "lines": 23,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação de roteamento encontrada",
+            "content": "Page com formulário de contato e email"
+          }
+        ]
+      },
+      "src/templates": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/templates",
+        "size": "16K",
+        "files": [
+          {
+            "name": "DevocionalTemplate.jsx",
+            "size": "1.1K",
+            "lines": 34,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada",
+            "content": "Template para artigos devotivos com titulo, subtitulo, versiculo, texto e autor"
+          },
+          {
+            "name": "EstudoTemplate.jsx",
+            "size": "1.2K",
+            "lines": 32,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada",
+            "content": "Template para estudos teológicos com seções e citações"
+          },
+          {
+            "name": "PregacaoTemplate.jsx",
+            "size": "1.4K",
+            "lines": 41,
+            "status": "NÃO IMPORTADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada",
+            "content": "Template para pregações com introducao, pontos, conclusao"
+          }
+        ]
+      },
+      "src/hooks": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/hooks",
+        "size": "8K",
+        "files": [
+          {
+            "name": "useScrollAnimation.js",
+            "size": "2.0K",
+            "lines": 65,
+            "status": "NÃO UTILIZADO - ÓRFÃO",
+            "imports": "Nenhuma importação encontrada em nenhum componente",
+            "description": "Hook customizado para animações baseadas em IntersectionObserver. Implementa scroll trigger com delay configurável",
+            "exports": "export default useScrollAnimation"
+          }
+        ]
+      },
+      "src/utils": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/utils",
+        "size": "8K",
+        "files": [
+          {
+            "name": "getAllPosts.js",
+            "size": "968 bytes",
+            "lines": 37,
+            "status": "USADO",
+            "imports": "import { getAllPosts } from \"../utils/getAllPosts\"; (ArvoreDePostagens.jsx)",
+            "description": "Utilitário que usa import.meta.glob() para carregar dinamicamente todos os posts do diretório content/",
+            "logic": "Retorna objeto com categorias: devocional, teologia, estudos - cada uma com array de posts ordenados alfabeticamente"
+          }
+        ]
+      },
+      "src/content": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/content",
+        "size": "44K",
+        "files": [
+          {
+            "name": "index.js",
+            "size": "822 bytes",
+            "lines": 19,
+            "type": "index/exportador",
+            "description": "Arquivo central que importa posts individuais e exporta: allPosts[], mainPost, secondaryPosts[]",
+            "posts_importados": [
+              "pomar-em-chamas.js (post1)",
+              "beijo-e-espada.js (post2 - PRINCIPAL)",
+              "quando-o-menos-e-mais.js (post3)"
+            ]
+          },
+          {
+            "name": "beijo-e-espada.js",
+            "size": "2.1K",
+            "lines": 22,
+            "type": "post-data",
+            "status": "USADO - POST PRINCIPAL",
+            "usado_por": "import { mainPost, secondaryPosts } from \"./content/index.js\"; (App.jsx)",
+            "dados": {
+              "id": 1,
+              "slug": "entre-o-beijo-e-a-espada",
+              "title": "Entre o Beijo e a Espada",
+              "date": "2025-11-07",
+              "tag": "DESTAQUE",
+              "readTime": "7 min de leitura",
+              "imageUrl": "/entre-o-beijo-e-a-espada.png",
+              "description": "Reflexão sobre Lucas 22 e a narrativa da ceia"
+            },
+            "campos": "title, date, tag, readTime, imageUrl, description, lorem, excerpt, fullContent"
+          },
+          {
+            "name": "pomar-em-chamas.js",
+            "size": "1.2K",
+            "lines": 17,
+            "type": "post-data",
+            "status": "USADO - POST SECUNDÁRIO",
+            "dados": {
+              "id": 2,
+              "slug": "pomar-em-chamas",
+              "title": "Pomar em Chamas, Porta entreaberta: a Urgência Escatológica de Lucas 13",
+              "date": "2025-11-08",
+              "tag": "NOVO",
+              "readTime": "8 min de leitura",
+              "imageUrl": "/Pomar em chamas.png"
+            }
+          },
+          {
+            "name": "quando-o-menos-e-mais.js",
+            "size": "1.2K",
+            "lines": 17,
+            "type": "post-data",
+            "status": "USADO - POST SECUNDÁRIO",
+            "dados": {
+              "id": 3,
+              "slug": "quando-o-menos-e-mais",
+              "title": "Quando Menos é Mais: O Verdadeiro Contentamento da Alma",
+              "date": "2025-11-06",
+              "tag": "REFLEXÃO",
+              "readTime": "6 min de leitura",
+              "imageUrl": "/Quando o menos é mais.jpg"
+            }
+          }
+        ]
+      },
+      "src/content/devocional": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/content/devocional",
+        "size": "4K",
+        "files": [
+          {
+            "name": "clamor-da-alma.js",
+            "size": "295 bytes",
+            "lines": 9,
+            "type": "post-data",
+            "status": "NÃO UTILIZADO DIRETAMENTE - Carregado por getAllPosts()",
+            "dados": {
+              "id": "clamor-da-alma",
+              "titulo": "Clamor da Alma",
+              "data": "2025-11-08",
+              "autor": "Cpl. Nascente",
+              "categoria": "devocional",
+              "excerpt": "Um pequeno clamor matinal pela presença e direção.",
+              "conteudo": "<p>Texto de exemplo...</p>"
+            }
+          }
+        ]
+      },
+      "src/content/estudos": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/content/estudos",
+        "size": "4K",
+        "files": [
+          {
+            "name": "dogma-e-misterio.js",
+            "size": "302 bytes",
+            "lines": 9,
+            "type": "post-data",
+            "status": "NÃO UTILIZADO DIRETAMENTE - Carregado por getAllPosts()",
+            "dados": {
+              "id": "dogma-e-misterio",
+              "titulo": "Dogma, Doutrina e Mistério",
+              "data": "2025-11-08",
+              "autor": "Cpl. Nascente",
+              "categoria": "estudos",
+              "excerpt": "Breve estudo sobre limites do discurso teológico.",
+              "conteudo": "<p>Texto de exemplo...</p>"
+            }
+          }
+        ]
+      },
+      "src/content/teologia": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/content/teologia",
+        "size": "4K",
+        "files": [
+          {
+            "name": "beijo-e-espada.js",
+            "size": "307 bytes",
+            "lines": 9,
+            "type": "post-data",
+            "status": "NÃO UTILIZADO DIRETAMENTE - Carregado por getAllPosts()",
+            "dados": {
+              "id": "beijo-e-espada",
+              "titulo": "Entre o Beijo e a Espada",
+              "data": "2025-11-08",
+              "autor": "Cpl. Nascente",
+              "categoria": "teologia",
+              "excerpt": "Reflexão teológica sobre ironia e violência na narrativa bíblica.",
+              "conteudo": "<p>Texto de exemplo...</p>"
+            }
+          }
+        ]
+      },
+      "src/styles": {
+        "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/src/styles",
+        "files": [
+          {
+            "name": "animations.css",
+            "size": "12K",
+            "description": "Arquivo CSS com definições de animações reutilizáveis"
+          }
+        ]
+      }
+    }
+  },
+  "components_summary": [
+    {
+      "name": "App.jsx",
+      "type": "Root Component",
+      "size": "11K",
+      "lines": 296,
+      "status": "ATIVO - PRINCIPAL",
+      "imports": [
+        "NavBar",
+        "ReflexaoDiaria",
+        "ArticleCard",
+        "ArvoreDePostagens",
+        "{ mainPost, secondaryPosts } from './content/index.js'"
+      ],
+      "exports": "export default App",
+      "description": "Componente raiz que renderiza toda a homepage com header, hero, navbar, reflexão diária, posts e árvore de postagens",
+      "complexity": "MUITO COMPLEXO - Contém múltiplas seções, animações, efeitos visuais, estados"
+    },
+    {
+      "name": "ArticleCard.jsx",
+      "type": "Component",
+      "size": "7.9K",
+      "lines": 269,
+      "status": "USADO",
+      "used_by": "App.jsx (2x - mainPost e secondaryPosts)",
+      "exports": "export const ArticleCard",
+      "description": "Card para exibir artigos/posts com suporte para modo main/secondary, spotlight efeito hover, imagem, título, meta info",
+      "complexity": "COMPLEXO",
+      "features": [
+        "Spotlight effect com mouse tracking",
+        "Responsiva (desktop/mobile)",
+        "Suporta dois layouts (main e secondary)",
+        "Animações de entrada (slideInUp)",
+        "Efeito hover com transformação 3D"
+      ]
+    },
+    {
+      "name": "NavBar.jsx",
+      "type": "Component",
+      "size": "4.0K",
+      "lines": 129,
+      "status": "USADO",
+      "used_by": "App.jsx (renderizada dentro do hero)",
+      "exports": "export default NavBar",
+      "description": "Barra de navegação com 6 links (Início, Caminho das Escrituras, Escadaria do Conhecimento, Devocional Diária, Temas da Vida, Contato)",
+      "complexity": "MÉDIO",
+      "features": [
+        "Links de navegação com efeito ativo",
+        "Efeito de foco de luz (dourado)",
+        "Underline animado",
+        "Responsiva com breakpoints"
+      ]
+    },
+    {
+      "name": "ReflexaoDiaria.jsx",
+      "type": "Component",
+      "size": "7.1K",
+      "lines": 224,
+      "status": "USADO",
+      "used_by": "App.jsx",
+      "exports": "export default ReflexaoDiaria",
+      "description": "Seção com 2 cards: Versículo do Dia e Pensamento do Dia, com spotlight effect",
+      "complexity": "COMPLEXO",
+      "features": [
+        "Dois cards com dados hardcoded",
+        "Spotlight efeito com mouse tracking",
+        "Grid responsiva (1 coluna mobile, 2 colunas desktop)",
+        "Animações de entrada"
+      ]
+    },
+    {
+      "name": "ArvoreDePostagens.jsx",
+      "type": "Component",
+      "size": "5.6K",
+      "lines": 179,
+      "status": "USADO",
+      "used_by": "App.jsx",
+      "exports": "export default ArvoreDePostagens",
+      "description": "Seção com árvore expansível de posts organizados por categoria (devocional, teologia, estudos)",
+      "complexity": "COMPLEXO",
+      "features": [
+        "Usa getAllPosts() para carregar dinâmicamente",
+        "Estado de expansão por categoria",
+        "Links com hover effects",
+        "Categorias expansíveis/colapsáveis",
+        "Loading state"
+      ]
+    },
+    {
+      "name": "Footer.jsx",
+      "type": "Component",
+      "size": "2.8K",
+      "lines": 68,
+      "status": "ÓRFÃO - NÃO IMPORTADO",
+      "used_by": "Nenhum lugar (NÃO UTILIZADO)",
+      "exports": "export default Footer",
+      "description": "Footer com grid 3 colunas (Brasão, Info, Links Rápidos), hardcoded",
+      "complexity": "MÉDIO",
+      "note": "Este componente está implementado mas não é renderizado em nenhum lugar"
+    },
+    {
+      "name": "PageTransition.jsx",
+      "type": "Component",
+      "size": "620 bytes",
+      "lines": 23,
+      "status": "ÓRFÃO - NÃO IMPORTADO",
+      "used_by": "Nenhum lugar (NÃO UTILIZADO)",
+      "exports": "export default PageTransition",
+      "description": "Wrapper para transições entre páginas com animação fade/scale",
+      "complexity": "SIMPLES",
+      "note": "Implementado mas não utilizado em lugar nenhum"
+    },
+    {
+      "name": "VersiculoDestaque.jsx",
+      "type": "Component",
+      "size": "618 bytes",
+      "lines": 13,
+      "status": "ÓRFÃO - NÃO IMPORTADO",
+      "used_by": "Nenhum lugar (NÃO UTILIZADO)",
+      "exports": "export default VersiculoDestaque",
+      "description": "Card estático com versículo (Isaías 1:18) em fundo claro",
+      "complexity": "SIMPLES",
+      "note": "Implementado mas não utilizado em lugar nenhum"
+    }
+  ],
+  "pages_summary": [
+    {
+      "name": "Home.jsx",
+      "lines": 15,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página de início simples",
+      "note": "Nenhuma rota definida em App.jsx para esta página"
+    },
+    {
+      "name": "CaminhoDasEscrituras.jsx",
+      "lines": 15,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página para seção de leitura das escrituras",
+      "note": "Nenhuma rota definida"
+    },
+    {
+      "name": "DevocionalDiaria.jsx",
+      "lines": 15,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página para devocional diária",
+      "note": "Nenhuma rota definida"
+    },
+    {
+      "name": "EscadariaDoConhecimento.jsx",
+      "lines": 15,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página para estudos teológicos",
+      "note": "Nenhuma rota definida"
+    },
+    {
+      "name": "TemasDaVida.jsx",
+      "lines": 15,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página para temas da vida",
+      "note": "Nenhuma rota definida"
+    },
+    {
+      "name": "Post.jsx",
+      "lines": 15,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página para exibir post individual",
+      "note": "Nenhuma rota definida"
+    },
+    {
+      "name": "Contato.jsx",
+      "lines": 23,
+      "status": "ÓRFÃO - NÃO ROTEADO",
+      "description": "Página de contato com email",
+      "note": "Nenhuma rota definida"
+    }
+  ],
+  "hooks_summary": [
+    {
+      "name": "useScrollAnimation.js",
+      "lines": 65,
+      "status": "NÃO UTILIZADO - ÓRFÃO",
+      "exported_as": "export default useScrollAnimation",
+      "description": "Hook customizado que usa IntersectionObserver para disparar animações quando elementos entram no viewport",
+      "features": [
+        "Delay configurável",
+        "rootMargin customizável",
+        "Safety net para elementos no topo",
+        "Anima apenas uma vez (hasBeenVisible)",
+        "Cleanup automático"
+      ],
+      "parameters": [
+        "rootMargin: '0px' (default)",
+        "delay: 0 (default)"
+      ],
+      "returns": "[elementRef, isIntersecting]"
+    }
+  ],
+  "utils_summary": [
+    {
+      "name": "getAllPosts.js",
+      "lines": 37,
+      "status": "USADO",
+      "used_by": "ArvoreDePostagens.jsx",
+      "exported_as": "export async function getAllPosts()",
+      "description": "Função async que carrega dinamicamente todos os posts usando import.meta.glob()",
+      "logic": "Varre todos os arquivos .js em ../content/, importa cada um, extrai categoria, ordena alfabeticamente",
+      "returns": "Objeto { devocional: [], teologia: [], estudos: [] }",
+      "data_structure": "Cada post: { id, titulo, data, autor, categoria, excerpt, conteudo }"
+    }
+  ],
+  "package_json": {
+    "name": "projeto-front-end-site",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview",
+      "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+      "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
+      "clean": "rm -rf node_modules package-lock.json && npm install",
+      "test": "vitest"
+    },
+    "dependencies": [
+      {
+        "name": "react",
+        "version": "^19.1.1",
+        "used_in": "main.jsx, App.jsx, components",
+        "usage": "UTILIZADO - Framework principal"
+      },
+      {
+        "name": "react-dom",
+        "version": "^19.1.1",
+        "used_in": "main.jsx",
+        "usage": "UTILIZADO - Renderização"
+      },
+      {
+        "name": "react-router-dom",
+        "version": "^7.9.5",
+        "used_in": "main.jsx (BrowserRouter)",
+        "usage": "PARCIALMENTE UTILIZADO - Apenas wrapper, nenhuma rota definida em App.jsx"
+      }
+    ],
+    "devDependencies": [
+      {
+        "name": "@eslint/js",
+        "version": "^9.36.0",
+        "usage": "Linting"
+      },
+      {
+        "name": "@tailwindcss/postcss",
+        "version": "^4.1.16",
+        "usage": "Utilizado em toda a aplicação"
+      },
+      {
+        "name": "@types/react",
+        "version": "^19.1.16",
+        "usage": "Type definitions"
+      },
+      {
+        "name": "@types/react-dom",
+        "version": "^19.1.9",
+        "usage": "Type definitions"
+      },
+      {
+        "name": "@vitejs/plugin-react",
+        "version": "^5.0.4",
+        "usage": "Vite plugin"
+      },
+      {
+        "name": "autoprefixer",
+        "version": "^10.4.21",
+        "usage": "PostCSS plugin"
+      },
+      {
+        "name": "eslint",
+        "version": "^9.36.0",
+        "usage": "Code quality"
+      },
+      {
+        "name": "eslint-config-prettier",
+        "version": "^9.0.0",
+        "usage": "ESLint config"
+      },
+      {
+        "name": "eslint-plugin-react-hooks",
+        "version": "^5.2.0",
+        "usage": "ESLint plugin"
+      },
+      {
+        "name": "eslint-plugin-react-refresh",
+        "version": "^0.4.22",
+        "usage": "ESLint plugin"
+      },
+      {
+        "name": "globals",
+        "version": "^16.4.0",
+        "usage": "Globals for linting"
+      },
+      {
+        "name": "postcss",
+        "version": "^8.5.6",
+        "usage": "CSS preprocessing"
+      },
+      {
+        "name": "prettier",
+        "version": "^3.1.0",
+        "usage": "Code formatting"
+      },
+      {
+        "name": "tailwindcss",
+        "version": "^4.1.16",
+        "usage": "Utilitário CSS (MUITO UTILIZADO)"
+      },
+      {
+        "name": "vitest",
+        "version": "^0.34.6",
+        "usage": "Testing (nenhum teste encontrado)"
+      }
+    ]
+  },
+  "config_files": {
+    "vite_config_js": {
+      "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/vite.config.js",
+      "content": "Configuração do Vite com:\n- Plugin React habilitado\n- Alias '@' para pasta src\n- Server: porta 5173, auto-open browser\n- Build: minify habilitado, sourcemap habilitado, manualChunks para react-vendor"
+    },
+    "tailwind_config_js": {
+      "path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/tailwind.config.js",
+      "content": "Configuração Tailwind com:\n- Colors customizadas: primary (#1a365d), secondary (#718096)\n- Font family: Inter sans-serif\n- Content paths incluem index.html, src/**/*.{js,ts,jsx,tsx}, public/**/*.html"
+    },
+    "package_json_path": "/home/nascente/Desktop/Projeto_Penso_Logo_Creio_Site/site-oficial-homepage-finished/package.json"
+  },
+  "analysis": {
+    "orphaned_components": [
+      {
+        "name": "Footer.jsx",
+        "reason": "Implementado mas não importado em nenhum lugar"
+      },
+      {
+        "name": "PageTransition.jsx",
+        "reason": "Implementado mas não importado em nenhum lugar"
+      },
+      {
+        "name": "VersiculoDestaque.jsx",
+        "reason": "Implementado mas não importado em nenhum lugar"
+      }
+    ],
+    "orphaned_pages": [
+      "Home.jsx",
+      "CaminhoDasEscrituras.jsx",
+      "EscadariaDoConhecimento.jsx",
+      "DevocionalDiaria.jsx",
+      "TemasDaVida.jsx",
+      "Post.jsx",
+      "Contato.jsx"
+    ],
+    "unused_hooks": [
+      "useScrollAnimation.js - Hook não é importado em nenhum componente"
+    ],
+    "unused_templates": [
+      "DevocionalTemplate.jsx",
+      "EstudoTemplate.jsx",
+      "PregacaoTemplate.jsx"
+    ],
+    "backup_files": [
+      "src/components/NavBar.jsx.bak - Versão anterior do NavBar, pode ser removido"
+    ],
+    "partially_configured_libraries": [
+      {
+        "library": "react-router-dom",
+        "status": "Instalado e importado em main.jsx (BrowserRouter)",
+        "issue": "Nenhuma rota definida em App.jsx - todas as páginas em /src/pages são órfãs"
+      },
+      {
+        "library": "vitest",
+        "status": "Instalado",
+        "issue": "Nenhum arquivo de teste encontrado"
+      }
+    ],
+    "hard_coded_data": [
+      {
+        "location": "ReflexaoDiaria.jsx",
+        "data": "Versículo do Dia e Pensamento do Dia (array 'data')",
+        "description": "2 itens hardcoded com título, quote, reference"
+      }
+    ],
+    "color_scheme": {
+      "primary": "#D4AF37 (Dourado)",
+      "secondary": "#718096 (Cinza)",
+      "background": "black/gradient",
+      "text": "white/light-gray"
+    },
+    "font_families": [
+      "Playfair Display (titles)",
+      "Inter (body)",
+      "Mile Heights (custom)",
+      "sans-serif (fallback)"
+    ]
+  },
+  "file_statistics": {
+    "total_jsx_files": 15,
+    "total_js_files": 10,
+    "total_css_files": 3,
+    "total_lines_jsx": 1302,
+    "components_count": 8,
+    "pages_count": 7,
+    "templates_count": 3,
+    "hooks_count": 1,
+    "utils_count": 1,
+    "content_files": 7
+  },
+  "recommendations": {
+    "cleanup": [
+      "Remover NavBar.jsx.bak (arquivo backup)",
+      "Remover ou utilizar Footer.jsx, PageTransition.jsx, VersiculoDestaque.jsx",
+      "Remover ou utilizar os templates (DevocionalTemplate, EstudoTemplate, PregacaoTemplate)",
+      "Remover ou utilizar useScrollAnimation.js hook"
+    ],
+    "routing": [
+      "Definir rotas em App.jsx para as páginas órfãs em /src/pages",
+      "Configurar React Router para navegação multi-página",
+      "Ligar NavBar links para as rotas corretas"
+    ],
+    "data_management": [
+      "Considerar mover dados hardcoded de ReflexaoDiaria para arquivo JSON/JS",
+      "Expandir getAllPosts() para incluir também os posts principais (beijo-e-espada, pomar-em-chamas, quando-o-menos-e-mais)",
+      "Implementar sistema de gerenciamento de conteúdo"
+    ],
+    "code_quality": [
+      "Implementar testes (vitest está instalado)",
+      "Documentar componentes complexos (ArticleCard, ReflexaoDiaria, ArvoreDePostagens)",
+      "Consistência de nomes de props (alguns use 'id', 'titulo', 'title')",
+      "Organizar imports por categoria"
+    ]
+  }
+}
