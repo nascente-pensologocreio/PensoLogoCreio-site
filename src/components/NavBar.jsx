@@ -16,6 +16,7 @@ const links = [
   { to: "/devocional-diaria", label: "Devocional Diária" },
   { to: "/temas-da-vida", label: "Temas da Vida" },
   { to: "/contato", label: "Contato" },
+  { to: "/calendario", label: "🕰️ Calendário" }, // ✅ Novo botão sutil
 ];
 
 export default function NavBar() {
@@ -31,11 +32,15 @@ export default function NavBar() {
         >
           {links.map((l) => {
             const active = path === l.to || (l.to !== "/" && path.startsWith(l.to));
+            const isCalendario = l.to === "/calendario";
+
             return (
               <li key={l.to}>
                 <Link
                   to={l.to}
-                  className={`nav-link ${active ? "active" : ""}`}
+                  className={`nav-link ${active ? "active" : ""} ${
+                    isCalendario ? "calendar-link" : ""
+                  }`}
                   style={{ textDecoration: "none" }}
                 >
                   <span>{l.label}</span>
@@ -80,40 +85,38 @@ export default function NavBar() {
             0 0 32px rgba(212,175,55,0.95);
         }
 
-        .nav-link .nav-underline {
+        /* Efeito da linha inferior dourada */
+        .nav-underline {
           content: "";
           position: absolute;
-          left: 50%;
-          transform: translateX(-50%) scaleX(0);
-          bottom: -6px;
+          bottom: 0;
+          left: 0;
+          width: 100%;
           height: 2px;
-          width: 70%;
-          background: linear-gradient(90deg, rgba(212,175,55,1), rgba(255,255,255,0.6));
-          border-radius: 2px;
-          transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 200ms;
-          opacity: 0.85;
+          background: linear-gradient(90deg, transparent, var(--gold), transparent);
+          opacity: 0;
+          transform: scaleX(0.8);
+          transition: all 240ms ease;
         }
 
         .nav-link:hover .nav-underline,
-        .nav-link:focus .nav-underline,
         .nav-link.active .nav-underline {
-          transform: translateX(-50%) scaleX(1);
           opacity: 1;
+          transform: scaleX(1);
         }
 
-        @media (max-width: 1024px) {
-          .nav-link {
-            font-size: 0.95rem;
-            padding: 8px 4px;
-          }
-          ul { gap: 1.5rem !important; }
+        /* --- Destaque sutil apenas para o botão Calendário --- */
+        .calendar-link {
+          border: 1px solid rgba(212,175,55,0.4);
+          border-radius: 8px;
+          padding: 6px 12px;
+          transition: all 260ms ease;
+          box-shadow: 0 0 10px rgba(212,175,55,0.15);
         }
 
-        @media (max-width: 640px) {
-          .nav-link {
-            font-size: 0.9rem;
-          }
-          ul { gap: 0.8rem !important; }
+        .calendar-link:hover {
+          background-color: rgba(212,175,55,0.1);
+          box-shadow: 0 0 20px rgba(212,175,55,0.25);
         }
       `}</style>
     </nav>

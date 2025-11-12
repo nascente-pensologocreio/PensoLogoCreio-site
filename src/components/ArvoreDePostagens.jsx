@@ -89,7 +89,6 @@ function ArvoreDePostagens() {
       className="relative z-30 container mx-auto px-6 mt-48 mb-48 text-white"
       style={{ fontFamily: "'Playfair Display', serif", letterSpacing: "0.6px" }}
     >
-      {/* Linha dourada superior */}
       <div
         className="w-full h-[1px] mb-12"
         style={{
@@ -128,7 +127,6 @@ function ArvoreDePostagens() {
                 key={ano}
                 className="rounded-xl border border-[#D4AF37]/60 bg-gradient-to-r from-black via-[#101010] to-black overflow-hidden transition-all duration-500"
               >
-                {/* Ano */}
                 <button
                   onClick={() => toggleAno(ano)}
                   className="w-full px-6 py-5 flex justify-between items-center categoria-button"
@@ -154,7 +152,6 @@ function ArvoreDePostagens() {
                   <div className="px-6 pb-6 space-y-6 animate-fadeIn">
                     {Object.entries(meses).map(([mes, dias]) => (
                       <div key={mes}>
-                        {/* Mês */}
                         <button
                           onClick={() => toggleMes(ano, mes)}
                           className="w-full text-left py-3 pl-4 flex justify-between items-center categoria-button"
@@ -184,7 +181,6 @@ function ArvoreDePostagens() {
                               const chave = `${ano}-${mes}`;
                               return (
                                 <div key={dia} className="mb-4">
-                                  {/* Dia */}
                                   <button
                                     onClick={() => toggleDia(ano, mes, dia)}
                                     className="w-full text-left py-2 pl-2 flex justify-between items-center categoria-button"
@@ -208,7 +204,6 @@ function ArvoreDePostagens() {
                                     </span>
                                   </button>
 
-                                  {/* Lista de posts */}
                                   {diaAberto[chave] === dia && (
                                     <ul className="mt-2 pl-6 border-l-2 border-[#D4AF37]/50 space-y-2">
                                       {lista.map((post) => (
@@ -218,8 +213,8 @@ function ArvoreDePostagens() {
                                             className="text-lg block hover:translate-x-2 transition-transform duration-300 link-post"
                                           >
                                             <span className="font-semibold text-[#D4AF37]">
-                                              {post.tipo
-                                                ? `${post.tipo} – `
+                                              {post.categoria
+                                                ? `${post.categoria} – `
                                                 : ""}
                                             </span>
                                             {post.titulo}
@@ -259,7 +254,6 @@ function ArvoreDePostagens() {
         }
         .animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
 
-        /* Fundo das caixas */
         .categoria-button {
           background-color: rgba(0, 0, 0, 0.85);
           transition: background-color 0.25s ease;
@@ -268,7 +262,6 @@ function ArvoreDePostagens() {
           background-color: rgba(212,175,55,0.08);
         }
 
-        /* Textos */
         .text-categoria-titulo {
           color: #FFFFFF;
           text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 18px rgba(212,175,55,0.45);
@@ -279,7 +272,6 @@ function ArvoreDePostagens() {
           text-shadow: 0 0 12px #D4AF37, 0 0 30px rgba(212,175,55,0.8);
         }
 
-        /* Links dos posts */
         .link-post {
           color: #EDEDED;
           text-shadow: 0 0 6px rgba(255,255,255,0.08), 0 0 3px rgba(212,175,55,0.18);
