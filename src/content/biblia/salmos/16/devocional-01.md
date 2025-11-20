@@ -1,0 +1,13 @@
+---
+livro: "salmos"
+capitulo: "16"
+titulo: ""
+slug: ""
+data: ""
+autor: "Capelão Nascente"
+
+tipo: "devocional"
+tema_principal: ""
+tags: []
+---
+

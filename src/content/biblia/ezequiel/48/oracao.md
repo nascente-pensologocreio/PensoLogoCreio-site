@@ -1,0 +1,13 @@
+---
+livro: "ezequiel"
+capitulo: "48"
+titulo: ""
+slug: ""
+data: ""
+autor: "Capelão Nascente"
+
+tipo: "oracao"
+tema_principal: ""
+tags: []
+---
+

@@ -1,0 +1,13 @@
+---
+livro: "1samuel"
+capitulo: "11"
+titulo: ""
+slug: ""
+data: ""
+autor: "Capelão Nascente"
+
+tipo: "pregacao-tecnica"
+tema_principal: ""
+tags: []
+---
+

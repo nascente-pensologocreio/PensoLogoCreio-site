@@ -1,0 +1,300 @@
+/* src/styles/post-page.css - Versão Ultra-Refinada Premium */
+
+/* HERO - Contenção elegante */
+.post-hero-container {
+  position: relative !important;
+  width: 100% !important;
+  height: 60vh !important;
+  max-height: 520px !important;
+  min-height: 420px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.post-hero-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  filter: brightness(1.02) contrast(1.05) saturate(1.08) !important;
+}
+
+.post-hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.45) 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+/* CABEÇALHO - Refinado */
+.post-header-section {
+  width: 100% !important;
+  max-width: 880px !important;
+  margin: 0 auto !important;
+  padding: 3rem 2rem 1.5rem !important;
+  text-align: center !important;
+}
+
+.post-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(1.75rem, 5vw, 2.75rem) !important;
+  font-weight: 600 !important;
+  color: #F5E3A1 !important;
+  text-shadow: 0 0 16px rgba(245, 227, 161, 0.25), 0 1px 3px rgba(0,0,0,0.2) !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.post-meta {
+  color: #A8A8A8 !important;
+  font-size: clamp(0.875rem, 1.8vw, 0.95rem) !important;
+  margin-bottom: 1.25rem !important;
+  letter-spacing: 0.04em !important;
+  font-weight: 300 !important;
+  opacity: 0.85 !important;
+}
+
+.post-tag {
+  display: inline-block !important;
+  padding: 0.35rem 1rem !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  border-radius: 9999px !important;
+  font-size: 0.65rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.25em !important;
+  color: #D4AF37 !important;
+  font-weight: 500 !important;
+  background: rgba(212, 175, 55, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+
+.post-tag:hover {
+  background: rgba(212, 175, 55, 0.12) !important;
+  border-color: rgba(212, 175, 55, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* CORPO EDITORIAL - Premium elegante */
+.post-body-article {
+  width: 100% !important;
+  max-width: 880px !important;
+  margin: 0 auto !important;
+  padding: 2.5rem 2rem 4.5rem !important;
+  box-sizing: border-box !important;
+}
+
+.post-glass-container {
+  background-color: rgba(0, 0, 0, 0.32) !important;
+  border: 1px solid rgba(212, 175, 55, 0.18) !important;
+  border-radius: 0.875rem !important;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(212, 175, 55, 0.08) inset !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  padding: clamp(2.5rem, 5vw, 3.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+/* Conteúdo textual - REFINADO E ELEGANTE */
+.post-content-prose {
+  color: #E2E2E2 !important;
+  font-size: clamp(1.02rem, 1.8vw, 1.08rem) !important;
+  line-height: 1.8 !important;
+  text-align: justify !important;
+  word-spacing: 0.02em !important;
+  hyphens: auto !important;
+  letter-spacing: 0.012em !important;
+  font-weight: 400 !important;
+}
+
+.post-content-prose p {
+  color: #E2E2E2 !important;
+  line-height: 1.8 !important;
+  text-align: justify !important;
+  margin-bottom: 1.5rem !important;
+  text-indent: 0 !important;
+}
+
+/* Drop cap REFINADO - Menor e mais elegante */
+.post-content-prose p:first-of-type::first-letter {
+  font-size: 2.75em !important;
+  line-height: 0.9 !important;
+  float: left !important;
+  margin: 0.08em 0.12em 0 0 !important;
+  font-family: 'Playfair Display', serif !important;
+  color: #F5E3A1 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 12px rgba(245, 227, 161, 0.2) !important;
+}
+
+.post-content-prose h1,
+.post-content-prose h2,
+.post-content-prose h3,
+.post-content-prose h4 {
+  font-family: 'Playfair Display', serif !important;
+  color: #F5E3A1 !important;
+  margin-top: 2.25rem !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0.015em !important;
+  font-weight: 600 !important;
+}
+
+.post-content-prose h1 {
+  font-size: 1.95rem !important;
+}
+
+.post-content-prose h2 {
+  font-size: 1.65rem !important;
+}
+
+.post-content-prose h3 {
+  font-size: 1.35rem !important;
+}
+
+.post-content-prose a {
+  color: #D4AF37 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.post-content-prose a:hover {
+  color: #F5E3A1 !important;
+  border-bottom-color: #F5E3A1 !important;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.3) !important;
+}
+
+.post-content-prose strong {
+  color: #F0E4C8 !important;
+  font-weight: 600 !important;
+}
+
+.post-content-prose em {
+  color: #D4AF37 !important;
+  font-style: italic !important;
+}
+
+.post-content-prose blockquote {
+  border-left: 3px solid rgba(212, 175, 55, 0.6) !important;
+  padding-left: 1.75rem !important;
+  color: #D4AF37 !important;
+  font-style: italic !important;
+  margin: 1.75rem 0 !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.05em !important;
+  line-height: 1.65 !important;
+  position: relative !important;
+  opacity: 0.95 !important;
+}
+
+.post-content-prose blockquote::before {
+  content: '"' !important;
+  position: absolute !important;
+  left: -0.4rem !important;
+  top: -0.8rem !important;
+  font-size: 3rem !important;
+  color: rgba(212, 175, 55, 0.18) !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+.post-content-prose ul,
+.post-content-prose ol {
+  padding-left: 1.75rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.post-content-prose li {
+  margin-bottom: 0.65rem !important;
+  line-height: 1.65 !important;
+}
+
+/* RESET de possíveis conflitos */
+.post-body-article * {
+  box-sizing: border-box !important;
+}
+
+.post-body-article *,
+.post-glass-container *,
+.post-content-prose * {
+  max-width: 100% !important;
+}
+
+/* Proteção contra overflow global */
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+main.post-page-main {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Responsividade refinada */
+@media (max-width: 768px) {
+  .post-hero-container {
+    height: 50vh !important;
+    max-height: 380px !important;
+  }
+
+  .post-header-section {
+    padding: 2.5rem 1.5rem 1.25rem !important;
+  }
+
+  .post-body-article {
+    padding: 2rem 1.25rem 3rem !important;
+  }
+
+  .post-glass-container {
+    padding: 2rem !important;
+  }
+
+  .post-content-prose {
+    font-size: 1.02rem !important;
+  }
+
+  /* Drop cap menor em mobile */
+  .post-content-prose p:first-of-type::first-letter {
+    font-size: 2.2em !important;
+  }
+}
+
+/* Animação suave de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-header-section,
+.post-body-article {
+  animation: fadeInUp 0.7s ease-out !important;
+}
+
+.post-body-article {
+  animation-delay: 0.15s !important;
+}
+
+/* Suavidade geral */
+* {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}

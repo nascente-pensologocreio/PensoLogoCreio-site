@@ -1,50 +1,94 @@
-import React from "react";
-import TemplateSeccao from "./TemplateSeccao";
+import React, { useState } from "react";
+import CarrosselTags from "../components/CarrosselTags";
+import { carregarTema } from "../components/TemasLoader";
 
 export default function TemasDaVida() {
+  const [temaSelecionado, setTemaSelecionado] = useState(null);
+
+  const conteudos =
+    temaSelecionado ? carregarTema(temaSelecionado) : { devocional: null, oracao: null };
+
   return (
-    <TemplateSeccao
-      titulo="Temas da Vida"
-      versiculo="Tudo tem o seu tempo determinado, e há tempo para todo propósito debaixo do céu."
-      referencia="Eclesiastes 3:1"
-      conteudo={
-        <>
-          <p className="mb-5 text-justify">
-            A seção <b>Temas da Vida</b> se debruça sobre o cotidiano humano à luz da eternidade.
-            Aqui, a fé se encontra com as emoções, o tempo e as contradições do existir — não como
-            fuga, mas como lente de sentido.
+    <div className="min-h-screen w-full text-[#e8e8e8] py-16 px-6 font-serif">
+
+      <h1
+        className="text-center text-4xl font-bold mb-10"
+        style={{
+          color: "#D4AF37",
+          textShadow: "0 0 14px rgba(212,175,55,0.55)",
+        }}
+      >
+        Temas da Vida
+      </h1>
+
+      {/* CARROSSEL */}
+      <div className="w-full flex justify-center mt-10">
+        <div className="w-[90%] max-w-5xl bg-black/30 border border-yellow-600/30 rounded-xl shadow-lg p-6 backdrop-blur-sm">
+          <CarrosselTags
+            tags={[
+              "amor",
+              "ansiedade",
+              "batalha",
+              "depressao",
+              "desemprego",
+              "dividas",
+              "doenca-morte",
+              "duvida",
+              "esperanca",
+              "frustracao",
+              "futuro",
+              "insonia",
+              "luto",
+              "medo",
+              "mudanca",
+              "perdao",
+              "separacao",
+              "solidao",
+              "sonho",
+              "vicio",
+            ]}
+            onSelectTag={setTemaSelecionado}
+          />
+        </div>
+      </div>
+
+      {/* RESULTADO */}
+      <div className="max-w-4xl mx-auto mt-16 font-serif">
+
+        {!temaSelecionado && (
+          <p className="text-center text-gray-400 text-lg">
+            Selecione um tema acima.
           </p>
+        )}
 
-          <blockquote className="my-6 p-5 text-center text-yellow-400 border border-yellow-700 bg-black/25 rounded-md shadow-lg backdrop-blur-md animate-fade-in">
-            “A fé não nega o mundo — ela o ilumina.”
-          </blockquote>
+        {conteudos.devocional && (
+          <section className="mb-16">
+            <h2 className="text-3xl text-center text-yellow-500 mb-6 font-bold">
+              Devocional
+            </h2>
+            <div className="whitespace-pre-line leading-relaxed opacity-90 text-justify">
+              {conteudos.devocional.content}
+            </div>
+          </section>
+        )}
 
-          <p className="mb-4 text-justify">
-            Nesta escuta dos dias, cada tema — o amor, o luto, a esperança, a dúvida — é
-            atravessado pela presença silenciosa de Deus. O sagrado se esconde nos detalhes:
-            na pausa, no gesto, na memória e no reencontro.
+        {conteudos.oracao && (
+          <section className="mb-16">
+            <h2 className="text-3xl text-center text-yellow-500 mb-6 font-bold">
+              Oração
+            </h2>
+            <div className="whitespace-pre-line leading-relaxed opacity-90 text-justify">
+              {conteudos.oracao.content}
+            </div>
+          </section>
+        )}
+
+        {temaSelecionado && !conteudos.devocional && !conteudos.oracao && (
+          <p className="text-center text-gray-500 text-lg italic">
+            Nenhum conteúdo disponível para este tema ainda.
           </p>
-
-          <div className="my-10 relative flex justify-center">
-            <div className="absolute inset-0 blur-3xl opacity-40 bg-gradient-to-t from-yellow-600/30 to-transparent animate-pulse-slow"></div>
-            <img
-              src="/img/temas-da-vida.png"
-              alt="Temas da Vida — imagem simbólica da jornada humana"
-              className="rounded-lg shadow-[0_0_35px_rgba(212,175,55,0.5)] hover:scale-[1.03] transition-all duration-700 ease-in-out"
-              style={{
-                maxWidth: "720px",
-                border: "1px solid rgba(212,175,55,0.3)",
-              }}
-            />
-          </div>
-
-          <p className="text-justify leading-relaxed italic">
-            Que este espaço inspire o olhar sobre o que é simples e o devolva ao mistério.
-            Pois a vida, quando tocada pela graça, deixa de ser apenas tempo —
-            torna-se revelação contínua.
-          </p>
-        </>
-      }
-    />
+        )}
+      </div>
+    </div>
   );
 }

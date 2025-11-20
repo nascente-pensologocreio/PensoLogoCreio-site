@@ -1,0 +1,13 @@
+---
+livro: "josue"
+capitulo: "11"
+titulo: ""
+slug: ""
+data: ""
+autor: "Capelão Nascente"
+
+tipo: "mensagem-pastoral"
+tema_principal: ""
+tags: []
+---
+

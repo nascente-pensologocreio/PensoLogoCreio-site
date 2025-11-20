@@ -1,34 +1,74 @@
 // src/templates/EstudoTemplate.jsx
 import React from "react";
 
-export default function EstudoTemplate({ titulo = 'Sem título', subtitulo, secoes = [] }) {
-  return (
-    <article className="max-w-6xl mx-auto px-10 py-16 font-serif text-[#eaeaea] leading-relaxed">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl font-playfair text-[#D4AF37] mb-2 drop-shadow-[0_0_25px_rgba(212,175,55,0.6)]">
-          {titulo}
-        </h1>
-        {subtitulo && (
-          <h2 className="text-xl italic text-[#bfb26b]">{subtitulo}</h2>
-        )}
-        <div className="w-32 h-[2px] bg-[#D4AF37] mx-auto mt-4"></div>
-      </header>
+/**
+ * EstudoTemplate
+ * Foco: conteúdo analítico e organizado em seções.
+ *
+ * Props:
+ * - titulo?: string
+ * - subtitulo?: string
+ * - secoes?: Array<{ titulo?: string, conteudo?: string, itens?: string[] }>
+ *   - Observação: cada seção pode ter:
+ *     - titulo: título da seção
+ *     - conteudo: texto em parágrafos (aceita quebra de linha via \n)
+ *     - itens: lista opcional (bullets) para pontos-chave
+ */
+export default function EstudoTemplate({
+  titulo = "Sem título",
+  subtitulo,
+  secoes = [],
+}) {
+  const hasSecoes =
+    Array.isArray(secoes) && secoes.filter(Boolean).length > 0;
 
-      <section className="space-y-12">
-        {secoes && Array.isArray(secoes) && secoes.map((secao, index) => (
-          secao && (
-            <div key={index}>
-              <h3 className="text-2xl text-[#cdbf7b] mb-2">{secao.titulo || 'Sem título'}</h3>
-              <p className="whitespace-pre-line">{secao.texto || ''}</p>
-              {secao.citacao && (
-                <blockquote className="border-l-4 border-[#D4AF37] pl-4 italic text-[#d9d9d9] mt-4">
-                  "{secao.citacao}"
-                </blockquote>
+  return (
+    <div className="space-y-10 animate-fade-in-up">
+      {/* Subtítulo analítico (opcional) */}
+      {subtitulo && (
+        <p className="text-base md:text-lg italic text-[#cfcfcf] animate-fade-in-down">
+          {subtitulo}
+        </p>
+      )}
+
+      {/* Seções do estudo */}
+      {hasSecoes ? (
+        secoes.map((sec, idx) => {
+          if (!sec) return null;
+
+          const { titulo: tSec, conteudo, itens } = sec;
+
+          return (
+            <section key={idx} className="space-y-4">
+              {tSec && (
+                <h3 className="text-xl md:text-2xl font-semibold text-[#D4AF37] animate-fade-in-left">
+                  {tSec}
+                </h3>
               )}
-            </div>
-          )
-        ))}
-      </section>
-    </article>
+
+              {conteudo && (
+                <p className="whitespace-pre-line leading-relaxed text-[#EDEDED]">
+                  {conteudo}
+                </p>
+              )}
+
+              {Array.isArray(itens) && itens.length > 0 && (
+                <ul className="list-disc ml-6 space-y-2 animate-fade-in-up">
+                  {itens.map((li, i) => (
+                    <li key={i} className="text-[#EDEDED] leading-relaxed">
+                      {li}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          );
+        })
+      ) : (
+        <p className="text-[#EDEDED] italic">
+          Nenhuma seção disponível para este estudo.
+        </p>
+      )}
+    </div>
   );
 }

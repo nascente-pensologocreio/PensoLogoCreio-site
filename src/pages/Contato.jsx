@@ -1,37 +1,85 @@
-import React from "react";
-// CAMINHO CORRIGIDO: Sobe um nível para acessar a pasta 'styles'
-import "../styles/animations.css"; 
+import React, { useState } from "react";
+
+// Estilos globais e da página
+import "../styles/animations.css";
 import "../styles/contato.css";
 
 export default function Contato() {
+  const [sending, setSending] = useState(false);
+
+  // 🔗 Endpoint Cloud Run
+  const ENDPOINT = "https://sendmail-5xwyfzmuuq-uc.a.run.app";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+
+    const form = e.target;
+    const formData = {
+      nome: form.nome?.value || "",
+      email: form.email?.value || "",
+      mensagem: form.mensagem?.value || "",
+    };
+
+    try {
+      const resp = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (resp.ok) {
+        window.alert("Mensagem enviada com sucesso!");
+        form.reset();
+      } else {
+        let text;
+        try {
+          const j = await resp.json();
+          text = j?.error || j?.message || resp.statusText;
+        } catch {
+          text = resp.statusText || "Erro desconhecido";
+        }
+        window.alert("Falha ao enviar: " + text);
+      }
+    } catch (err) {
+      console.error("Erro de rede ao enviar:", err);
+      window.alert("Erro de rede ao enviar a mensagem. Tente novamente.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
-    // Usa a classe CSS 'contato-section' para todo o estilo da seção
     <section className="contato-section">
       
-      {/* Coluna Esquerda — Mensagem e Contatos */}
+      {/* =======================
+          COLUNA ESQUERDA
+      ======================== */}
       <div className="contato-texto-coluna">
         
         <h1 className="contato-titulo">Contate-nos</h1>
 
-        {/* Classe para a primeira citação (Branca, Itálico, Breathe) */}
         <p className="frase-principal"> 
-          “Escrever é uma forma de oração. E, quando a oração nasce de um desabafo sincero, a alma respira e o espírito sussurra — inexprimível — aos ouvidos do Deus Eterno. Não há palavra verdadeira que Ele não escute: às vezes responde com o silêncio, outras, com alguém que te lê. Hoje, aqui estou eu, ao teu dispor. Capelão Nascente.”
+          “Escrever é uma forma de oração. E, quando a oração nasce de um desabafo sincero, 
+          a alma respira e o espírito sussurra — inexprimível — aos ouvidos do Deus Eterno. 
+          Não há palavra verdadeira que Ele não escute: às vezes responde com o silêncio, 
+          outras, com alguém que te lê. Hoje, aqui estou eu, ao teu dispor. 
+          Capelão Nascente.”
         </p>
 
         <div className="contato-info-grupo">
           <div>
-            {/* Título (Dourado, Negrito) */}
             <p className="info-titulo">✉️ E-mail</p>
             <a
               href="mailto:nascente@pensologocreio.com.br"
-              className="info-link" // Link (Branco, Hover Dourado)
+              className="info-link"
             >
               nascente@pensologocreio.com.br
             </a>
           </div>
 
           <div>
-            {/* Título (Dourado, Negrito) */}
             <p className="info-titulo">💬 WhatsApp</p>
             <a
               href="https://wa.me/5534991046358"
@@ -41,44 +89,61 @@ export default function Contato() {
             >
               (34) 99104-6358
             </a>
-            {/* Nota de rodapé (Cinza, Pequeno) */}
             <p className="nota-rodape">
               Somente mensagens — sem chamadas.
             </p>
           </div>
         </div>
 
-        {/* Classe para a citação de rodapé (Dourado, Brilho Forte) */}
         <p className="frase-rodape"> 
           “Toda boa conversa começa com silêncio e termina em luz.”
         </p>
       </div>
 
-      {/* Coluna Direita — Formulário */}
+      {/* =======================
+          COLUNA DIREITA — FORMULÁRIO
+      ======================== */}
       <div className="contato-formulario-coluna">
         <div className="contato-formulario-wrapper">
           
           <h2 className="formulario-titulo">Envie sua mensagem</h2>
 
-          <form
-            action="mailto:nascente@pensologocreio.com.br"
-            method="post"
-            encType="text/plain"
-            className="formulario-contato"
-          >
-            <input type="text" name="nome" placeholder="Seu nome" className="contato-input" />
-            <input type="email" name="email" placeholder="Seu e-mail" className="contato-input" />
+          <form onSubmit={handleSubmit} className="formulario-contato">
+            <input
+              type="text"
+              name="nome"
+              placeholder="Seu nome"
+              className="contato-input"
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Seu e-mail"
+              className="contato-input"
+              required
+            />
+
             <textarea
               name="mensagem"
               rows="5"
               placeholder="Sua mensagem"
               className="contato-input contato-textarea"
+              required
             ></textarea>
 
-            <button type="submit" className="contato-button">
-              Enviar
+            {/* 🟡 EFEITO DE BOTÃO RESPIRANDO */}
+            <button
+              type="submit"
+              className="contato-button pulse-gold"
+              disabled={sending}
+            >
+              {sending ? "Enviando..." : "Enviar"}
             </button>
+
           </form>
+
         </div>
       </div>
     </section>

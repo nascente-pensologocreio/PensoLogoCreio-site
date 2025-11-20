@@ -1,0 +1,13 @@
+---
+livro: "jeremias"
+capitulo: "20"
+titulo: ""
+slug: ""
+data: ""
+autor: "Capelão Nascente"
+
+tipo: "temas-controversos"
+tema_principal: ""
+tags: []
+---
+

@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative z-20 py-10 border-t border-[#D4AF37]/20 group overflow-hidden"
+      className="relative z-20 py-4 border-t border-[#D4AF37]/20 group overflow-hidden"
       style={{
         backgroundImage: `url("${backgroundTemplate}")`,
         backgroundRepeat: "no-repeat",
@@ -24,10 +24,10 @@ export default function Footer() {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-center md:text-left space-y-6 md:space-y-0 relative z-10">
+      <div className="container mx-auto px-3 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-2 relative z-10">
         <div>
           <p
-            className="text-sm md:text-base font-medium"
+            className="text-sm font-medium"
             style={{
               color: "#E8E8E8",
               textShadow: "0 0 6px #D4AF37",
@@ -36,20 +36,20 @@ export default function Footer() {
             © 2025 Capelania Nascente. Todos os direitos reservados.
           </p>
           <p
-            className="text-xs italic mt-1"
+            className="text-xs italic"
             style={{
-              color: "#bfbfbf",
+              color: "#bebebe",
             }}
           >
             Desenvolvido com fé e razão — Penso Logo Creio
           </p>
         </div>
 
-        <div className="flex justify-center md:justify-end">
+        <div>
           <img
             src={brasao}
             alt="Brasão Capelania Nascente"
-            className="h-14 md:h-16 transition-transform duration-700 ease-in-out group-hover:scale-110"
+            className="h-12 md:h-14 transition-transform duration-700 ease-in-out group-hover:scale-110"
             style={{
               filter: "drop-shadow(0 0 12px rgba(212,175,55,0.6))",
             }}
@@ -64,7 +64,7 @@ export default function Footer() {
             opacity: 0.4;
           }
           50% {
-            transform: translate(20%, 20%) scale(1.4);
+            transform: translate(20%, 20%) scale(1.35);
             opacity: 0.7;
           }
           100% {

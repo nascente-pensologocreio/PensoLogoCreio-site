@@ -1,0 +1,13 @@
+---
+livro: "josue"
+capitulo: "17"
+titulo: ""
+slug: ""
+data: ""
+autor: "Capelão Nascente"
+
+tipo: "temas-controversos"
+tema_principal: ""
+tags: []
+---
+

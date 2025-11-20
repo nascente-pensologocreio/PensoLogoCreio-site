@@ -1,14 +1,11 @@
-/* src/index.css - CÓDIGO COMPLETO E CORRIGIDO */
+/* src/index.css - Tipografia premium e microinterações (revisado) */
 
-/* 1. Importação das Fontes Premium: Inter (corpo) e Playfair Display (títulos) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap');
 
-/* 2. Configuração Base do Tailwind (permanece igual) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 3. A CORREÇÃO DEFINITIVA: Estabilizando a Fundação (mantida) */
 @layer base {
   html,
   body,
@@ -17,7 +14,50 @@
   }
 
   body {
-    @apply bg-cover bg-fixed bg-center;
-    background-image: url("/Template Verde espelhado Listas brancas verticais 300 DPI.png");
+    font-family: 'Inter', sans-serif;
+    color: #EDEDED;
+    background-color: #010b0a;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.02em;
+  }
+
+  h1 {
+    color: #D4AF37;
+    text-shadow: 0 0 12px rgba(212,175,55,0.45);
+  }
+
+  h2 {
+    color: #cfcfcf;
+  }
+
+  h3 {
+    color: #bcbcbc;
+  }
+
+  p {
+    line-height: 1.625;
+  }
+
+  blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    border-left-width: 4px;
+    padding-left: 1rem;
+    color: #D4AF37;
+    text-shadow: 0 0 8px rgba(212,175,55,0.35);
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  a:hover {
+    color: #D4AF37;
+    text-shadow: 0 0 8px rgba(212,175,55,0.45);
   }
 }
+
+/* Resto do arquivo permanece inalterado */
