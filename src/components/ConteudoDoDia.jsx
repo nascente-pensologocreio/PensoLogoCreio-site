@@ -1,7 +1,9 @@
 // src/components/ConteudoDoDia.jsx
 import React, { useEffect, useState } from "react";
 
-/* índice diário determinístico */
+/* ---------------------------------------------
+   Função determinística para index diário
+--------------------------------------------- */
 function seedDiaria(max) {
   const hoje = new Date();
   const chave = `${hoje.getFullYear()}-${hoje.getMonth()}-${hoje.getDate()}`;
@@ -14,54 +16,43 @@ function seedDiaria(max) {
   return hash % max;
 }
 
-/* Parser simples de front-matter YAML "rasa"
-   Exemplo esperado:
-
-   ---
-   titulo: Algum título
-   slug: teste-01
-   ---
-   Corpo do texto...
-*/
+/* ---------------------------------------------
+   Parser de FrontMatter manual (SEM gray-matter)
+--------------------------------------------- */
 function parseFrontMatter(raw) {
-  if (typeof raw !== "string") {
-    return { data: {}, content: "" };
-  }
+  if (typeof raw !== "string") return { data: {}, content: "" };
 
-  const trim = raw.trimStart();
+  const txt = raw.trimStart();
 
-  if (!trim.startsWith("---")) {
+  if (!txt.startsWith("---")) {
     return { data: {}, content: raw };
   }
 
-  const end = trim.indexOf("\n---", 3);
-  if (end === -1) {
-    // Não encontrou fechamento, devolve tudo como conteúdo
-    return { data: {}, content: raw };
-  }
+  const end = txt.indexOf("\n---", 3);
+  if (end === -1) return { data: {}, content: raw };
 
-  const fmBlock = trim.slice(3, end).trim(); // entre os '---'
-  const body = trim.slice(end + 4).replace(/^\r?\n/, ""); // após linha '---'
+  const fm = txt.slice(3, end).trim();
+  const body = txt.slice(end + 4).replace(/^\r?\n/, "");
 
   const data = {};
 
-  fmBlock
-    .split("\n")
+  fm.split("\n")
     .map((l) => l.trim())
     .filter((l) => l && !l.startsWith("#"))
     .forEach((line) => {
-      const sepIndex = line.indexOf(":");
-      if (sepIndex === -1) return;
-      const key = line.slice(0, sepIndex).trim();
-      const value = line.slice(sepIndex + 1).trim();
-      if (!key) return;
-      data[key] = value;
+      const idx = line.indexOf(":");
+      if (idx === -1) return;
+      const key = line.slice(0, idx).trim();
+      const val = line.slice(idx + 1).trim();
+      if (key) data[key] = val;
     });
 
   return { data, content: body };
 }
 
-/* --- GLOBS (caminhos RELATIVOS corretos para Vite) --- */
+/* ---------------------------------------------
+   GLOBS — Caminhos corretos para Vite
+--------------------------------------------- */
 
 const GLOB_ORACAO = import.meta.glob(
   "../content/biblia/**/oracao.md",
@@ -98,8 +89,9 @@ const GLOB_PREGACAO_TECNICA = import.meta.glob(
   { query: "?raw", import: "default" }
 );
 
-/* --- MAPEAMENTO DOS TIPOS PARA OS GLOBS --- */
-
+/* ---------------------------------------------
+   MAPA → tipo → glob correspondente
+--------------------------------------------- */
 const MAPA_ARQUIVOS_POR_TIPO = {
   oracao: GLOB_ORACAO,
   devocional: GLOB_DEVOCIONAL,
@@ -110,8 +102,9 @@ const MAPA_ARQUIVOS_POR_TIPO = {
   "pregacao-tecnica": GLOB_PREGACAO_TECNICA,
 };
 
-/* --- COMPONENTE PRINCIPAL --- */
-
+/* ---------------------------------------------
+   COMPONENTE
+--------------------------------------------- */
 export default function ConteudoDoDia({ tipo, titulo }) {
   const [conteudo, setConteudo] = useState(null);
   const [erro, setErro] = useState(null);
@@ -122,45 +115,34 @@ export default function ConteudoDoDia({ tipo, titulo }) {
         setErro(null);
 
         const arquivos = MAPA_ARQUIVOS_POR_TIPO[tipo];
+        const caminhos = arquivos ? Object.keys(arquivos) : [];
 
-        // LOG PARA DIAGNÓSTICO
         console.log(
-          "GLOB → TIPO:",
-          tipo,
-          "TOTAL:",
-          Object.keys(arquivos || {}).length,
-          "LISTA:",
-          Object.keys(arquivos || {})
+          `ConteudoDoDia → Tipo "${tipo}" → Encontrados:`,
+          caminhos.length,
+          caminhos
         );
 
-        if (!arquivos || typeof arquivos !== "object") {
-          setConteudo(null);
-          return;
-        }
-
-        const caminhos = Object.keys(arquivos);
-
-        if (caminhos.length === 0) {
+        if (!arquivos || caminhos.length === 0) {
           setConteudo(null);
           return;
         }
 
         const index = seedDiaria(caminhos.length);
-        const carregarArquivo = arquivos[caminhos[index]];
+        const fn = arquivos[caminhos[index]];
 
-        if (!carregarArquivo || typeof carregarArquivo !== "function") {
+        if (typeof fn !== "function") {
           setConteudo(null);
           return;
         }
 
-        const arquivoBruto = await carregarArquivo();
-
-        if (!arquivoBruto || typeof arquivoBruto !== "string") {
+        const bruto = await fn();
+        if (!bruto || typeof bruto !== "string") {
           setConteudo(null);
           return;
         }
 
-        const { data, content } = parseFrontMatter(arquivoBruto);
+        const { data, content } = parseFrontMatter(bruto);
 
         setConteudo({
           data,
@@ -168,8 +150,8 @@ export default function ConteudoDoDia({ tipo, titulo }) {
           caminho: caminhos[index],
         });
       } catch (err) {
-        console.error(`Erro ao carregar conteúdo tipo "${tipo}":`, err);
-        setErro(err.message || String(err));
+        console.error(`Erro ao carregar "${tipo}":`, err);
+        setErro(String(err));
         setConteudo(null);
       }
     }
@@ -177,7 +159,7 @@ export default function ConteudoDoDia({ tipo, titulo }) {
     carregar();
   }, [tipo]);
 
-  /* --- ERRO --- */
+  /* ---- ERRO ---- */
   if (erro) {
     return (
       <div className="text-center py-12 opacity-70 font-serif">
@@ -189,7 +171,7 @@ export default function ConteudoDoDia({ tipo, titulo }) {
     );
   }
 
-  /* --- LOADING --- */
+  /* ---- LOADING ---- */
   if (!conteudo) {
     return (
       <div className="text-center py-12 opacity-70 font-serif">
@@ -198,7 +180,7 @@ export default function ConteudoDoDia({ tipo, titulo }) {
     );
   }
 
-  /* --- FINAL --- */
+  /* ---- FINAL ---- */
   return (
     <div className="max-w-3xl mx-auto px-6 py-12 text-[#e8e8e8] font-serif leading-relaxed">
       <h2

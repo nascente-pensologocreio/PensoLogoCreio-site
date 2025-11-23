@@ -7,6 +7,16 @@ export const ArticleCard = ({ post, isMain = false, delay = 0.1 }) => {
 
   if (!post) return null;
 
+  // Gera um pequeno resumo a partir do conteúdo bruto
+  const gerarExcerpt = (texto) => {
+    if (!texto) return "";
+    const limpo = texto.replace(/[#>*_`~\-]/g, "").trim();
+    return limpo.substring(0, 200) + "...";
+  };
+
+  // Conteúdo para cards secundários
+  const excerptFinal = gerarExcerpt(post.conteudo);
+
   const handleMouseMove = (e) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
@@ -44,7 +54,7 @@ export const ArticleCard = ({ post, isMain = false, delay = 0.1 }) => {
           opacity: 0;
           transition: opacity 0.3s ease-out;
         }
-        
+
         .article-card:hover .article-spotlight {
           opacity: 1 !important;
         }
@@ -110,7 +120,7 @@ export const ArticleCard = ({ post, isMain = false, delay = 0.1 }) => {
           color: #D4AF37 !important;
           margin-bottom: 1rem !important;
         }
-        
+
         .article-title-secondary {
           font-family: 'Playfair Display', serif !important;
           font-size: 1.5rem !important;
@@ -127,13 +137,13 @@ export const ArticleCard = ({ post, isMain = false, delay = 0.1 }) => {
           padding-bottom: 1.5rem;
           border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
         }
-        
+
         .article-meta span {
           font-family: 'Inter', sans-serif !important;
           font-size: 0.8rem !important;
           color: #D1D5DB !important;
         }
-        
+
         .article-meta .dot {
           width: 5px;
           height: 5px;
@@ -179,7 +189,7 @@ export const ArticleCard = ({ post, isMain = false, delay = 0.1 }) => {
           background-color: transparent !important;
           transition: all 0.3s ease !important;
         }
-        
+
         .article-button:hover {
           background-color: rgba(212, 175, 55, 0.15) !important;
           color: white !important;
@@ -187,76 +197,76 @@ export const ArticleCard = ({ post, isMain = false, delay = 0.1 }) => {
         }
 
         @media (max-width: 1024px) {
-            .article-card.is-main {
-                max-width: 100% !important;
-            }
-            
-            .main-image-top {
-                height: 250px;
-            }
-            
-            .secondary-image-top {
-                height: 180px;
-            }
-            
-            .article-card:not(.is-main) {
-                max-width: 100% !important;
-                min-height: 380px;
-            }
-            
-            .article-card:not(.is-main):hover {
-                min-height: 420px !important;
-            }
+          .article-card.is-main {
+            max-width: 100% !important;
+          }
+
+          .main-image-top {
+            height: 250px;
+          }
+
+          .secondary-image-top {
+            height: 180px;
+          }
+
+          .article-card:not(.is-main) {
+            max-width: 100% !important;
+            min-height: 380px;
+          }
+
+          .article-card:not(.is-main):hover {
+            min-height: 420px !important;
+          }
         }
       `}</style>
 
-      <article 
-        className={`article-card ${isMain ? 'is-main' : ''}`}
+      <article
+        className={`article-card ${isMain ? "is-main" : ""}`}
         style={{ animationDelay: `${delay}s` }}
         onMouseMove={handleMouseMove}
       >
         <div className="article-spotlight"></div>
-        
-        {post.imageUrl && (
-          <img 
-            src={post.imageUrl}
-            alt={post.title}
-            className={isMain ? 'main-image-top' : 'secondary-image-top'}
+
+        {post.imagem && (
+          <img
+            src={post.imagem}
+            alt={post.titulo}
+            className={isMain ? "main-image-top" : "secondary-image-top"}
           />
         )}
 
         <div className="article-content">
-          
-          <h2 className={isMain ? 'article-title-main' : 'article-title-secondary'}>
-            {post.title}
+
+          <h2 className={isMain ? "article-title-main" : "article-title-secondary"}>
+            {post.titulo}
           </h2>
 
           {isMain && (
             <div className="article-meta">
-              <span className="article-date">{post.date}</span>
+              <span className="article-date">{post.data}</span>
               <span className="dot"></span>
-              <span style={{color: '#D4AF37', fontWeight: 600}}>{post.tag}</span>
+              <span style={{ color: "#D4AF37", fontWeight: 600 }}>
+                {post.readTime}
+              </span>
             </div>
           )}
 
-          <p className={isMain ? 'article-text' : 'article-text-secondary'}>
-            {isMain ? post.description : post.excerpt}
-            {isMain && <><br/><br/>{post.lorem}</>}
+          <p className={isMain ? "article-text" : "article-text-secondary"}>
+            {isMain ? excerptFinal : excerptFinal}
           </p>
 
           {isMain && (
             <div className="article-footer">
-              
-              {/* CORREÇÃO FINAL: ROTA PREMIUM */}
+              {/* ROTA PREMIUM CORRETA */}
               <Link
                 to={`/artigo/${post.slug}`}
                 className="article-button"
-                style={{ textDecoration: 'none', display: 'inline-block' }}
+                style={{ textDecoration: "none", display: "inline-block" }}
               >
                 Ler Mais
               </Link>
 
-              <span className="article-meta" style={{border: 'none', padding: 0, margin: 0}}>
+              <span className="article-meta" style={{ border: "none", padding: 0, margin: 0 }}>
                 <span>{post.readTime}</span>
               </span>
             </div>

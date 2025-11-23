@@ -1,11 +1,42 @@
-import React from "react";
+// src/pages/Home.jsx
+import React, { useEffect, useState } from "react";
 import ReflexaoDiaria from "../components/ReflexaoDiaria.jsx";
 import { ArticleCard } from "../components/ArticleCard.jsx";
 import ArvoreDePostagens from "../components/ArvoreDePostagens.jsx";
-import { mainPost, secondaryPosts } from "../content/index.js";
+import { getHomePosts } from "../utils/loadHomePosts";
 
 export default function Home() {
   const fundoHero = "/Mockup da Homepage.png";
+  const [postsHome, setPostsHome] = useState([]);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const posts = await getHomePosts();
+        setPostsHome(posts);
+      } catch (err) {
+        console.error("ERRO NO LOAD():", err);
+      }
+    }
+    load();
+  }, []);
+
+  // ============================================
+  // ORDEM CORRETA DEFINITIVA — SEM RISCO DE ERRO
+  // ============================================
+  const ordemDesejada = ["devocional", "mensagem-pastoral", "oracao"];
+
+  const postsOrdenados =
+    postsHome.length === 3
+      ? [...postsHome].sort(
+          (a, b) =>
+            ordemDesejada.indexOf(a.slug) -
+            ordemDesejada.indexOf(b.slug)
+        )
+      : postsHome;
+
+  const mainPost = postsOrdenados[0] || null;
+  const secondaryPosts = postsOrdenados.slice(1);
 
   return (
     <>
@@ -17,10 +48,8 @@ export default function Home() {
           backgroundAttachment: "fixed",
         }}
       >
-        {/* Sobreposição escura */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-10"></div>
 
-        {/* TÍTULO PRINCIPAL */}
         <div className="relative z-30 flex flex-col items-center w-full">
           <h1
             className="text-4xl sm:text-6xl lg:text-7xl font-['Playfair_Display'] font-bold mb-3 animate-glow"
@@ -32,6 +61,7 @@ export default function Home() {
           >
             Bem-vindo ao Penso Logo Creio
           </h1>
+
           <p
             className="text-lg sm:text-xl lg:text-2xl font-['Inter'] mt-2 mb-3 animate-glow"
             style={{
@@ -50,17 +80,25 @@ export default function Home() {
         <ReflexaoDiaria />
       </div>
 
-      {/* POSTS */}
+      {/* POSTS DINÂMICOS */}
       <main className="relative z-20 container mx-auto px-4 my-24 flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-3">
             <div className="flex flex-col items-center gap-[6rem] w-full">
+
+              {/* Post principal */}
               <div className="w-full flex justify-center">
                 {mainPost && (
-                  <ArticleCard post={mainPost} isMain={true} delay={0.1} />
+                  <ArticleCard
+                    post={mainPost}
+                    isMain={true}
+                    delay={0.1}
+                  />
                 )}
               </div>
-              {secondaryPosts && secondaryPosts[0] && (
+
+              {/* Post secundário 01 */}
+              {secondaryPosts[0] && (
                 <div className="w-[65%] self-start">
                   <ArticleCard
                     post={secondaryPosts[0]}
@@ -69,7 +107,9 @@ export default function Home() {
                   />
                 </div>
               )}
-              {secondaryPosts && secondaryPosts[1] && (
+
+              {/* Post secundário 02 */}
+              {secondaryPosts[1] && (
                 <div className="w-[65%] self-end">
                   <ArticleCard
                     post={secondaryPosts[1]}
@@ -78,30 +118,13 @@ export default function Home() {
                   />
                 </div>
               )}
+
             </div>
           </div>
         </div>
       </main>
 
-      {/* ÁRVORE DE POSTAGENS */}
       <ArvoreDePostagens />
-
-      {/* ESTILOS GLOBAIS */}
-      <style>{`
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px);} to { opacity: 1; transform: translateY(0);} }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
-        @keyframes float { 0%,100% { opacity: 0; transform: translateY(0);} 50% { opacity: 0.8; transform: translateY(-20px);} }
-        @keyframes spin-slow { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
-
-        .animate-glow {
-          animation: fadeInUp 1.8s ease both;
-        }
-
-        html { scroll-behavior: smooth; }
-        @supports (backdrop-filter: blur(1px)) {
-          .backdrop-blur-xl { backdrop-filter: blur(20px); }
-        }
-      `}</style>
     </>
   );
 }
