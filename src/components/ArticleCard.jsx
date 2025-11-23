@@ -1,5 +1,8 @@
 // src/components/ArticleCard.jsx
 
+// Home.jsx → loadHomePosts.js → ArticleCard.jsx
+// Esses três definem o “modelo oficial” dos posts mostrados na home. 
+
 import React from 'react';
 import { Link } from "react-router-dom";
 

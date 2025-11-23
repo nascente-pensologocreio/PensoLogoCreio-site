@@ -1,4 +1,7 @@
-// src/utils/loadHomePosts.js
+// Home.jsx → loadHomePosts.js → ArticleCard.jsx
+// Esses três definem o “modelo oficial” dos posts mostrados na home.  
+
+//src/utils/loadHomePosts.js
 // Ordem fixa: devocional → mensagem-pastoral → oracao
 
 const globHome = import.meta.glob(

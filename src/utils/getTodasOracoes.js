@@ -1,8 +1,9 @@
-import matter from "gray-matter";
+// src/utils/getTodasOracoes.js
+import { parseFrontmatter } from "./parseFrontmatter.js";
 
 /**
  * Lê TODAS as orações existentes no projeto,
- * seja em /content/tags/ ou /content/biblia/.
+ * seja em /content/tags/ ou em /content/biblia/.
  *
  * O glob procura nas DUAS estruturas ao mesmo tempo.
  */
@@ -26,13 +27,16 @@ export async function getTodasOracoes() {
   for (const path in modules) {
     try {
       const raw = await modules[path]();
-      const { data, content } = matter(raw);
+
+      // parser manual seguro (SEM gray-matter)
+      const { data, content } = parseFrontmatter(raw);
 
       lista.push({
         ...data,
         content,
         path
       });
+
     } catch (err) {
       console.error("ERRO AO LER ARQUIVO:", path, err);
     }

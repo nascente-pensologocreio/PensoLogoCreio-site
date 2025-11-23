@@ -1,6 +1,6 @@
 ---
 titulo: "oracao"
-slug: "entre-o-beijo-e-a-espada-a-noite-em-que-deus-suou-sangue"
+slug: "entre-o-beijo-e-a-espada"
 data: "2025-11-08"
 imagem: "/src/assets/beijo-e-espada.png"
 readTime: "12 min de leitura"

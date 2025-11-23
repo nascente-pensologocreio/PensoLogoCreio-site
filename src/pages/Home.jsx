@@ -1,4 +1,8 @@
 // src/pages/Home.jsx
+
+// // Home.jsx → loadHomePosts.js → ArticleCard.jsx
+// Esses três definem o “modelo oficial” dos posts mostrados na home. 
+
 import React, { useEffect, useState } from "react";
 import ReflexaoDiaria from "../components/ReflexaoDiaria.jsx";
 import { ArticleCard } from "../components/ArticleCard.jsx";
